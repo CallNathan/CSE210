@@ -16,7 +16,7 @@ class Program
         int number = randomnumber.Next(1,100);
 
         while (number != Guess) {
-            Console.WriteLine("What is your guess?");
+            Console.Write("What is your guess?");
             SGuess = Console.ReadLine();
             Guess = int.Parse(SGuess);
 
