@@ -13,7 +13,7 @@ class Program
         //int number = int.Parse(Snumber);
 
         Random randomnumber = new Random();
-        int number = randomnumber.Next(1,1000);
+        int number = randomnumber.Next(1,100);
 
         while (number != Guess) {
             Console.WriteLine("What is your guess?");
