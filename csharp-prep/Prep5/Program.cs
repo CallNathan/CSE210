@@ -40,6 +40,6 @@ class Program
 
     static void DisplayResults(int Dnumber, string Dname, int Dsquare)
     {
-        Console.WriteLine($"{Dname}, the Square of your favorite number is {Dsquare}");
+        Console.WriteLine($"{Dname}, The square of your favorite number is {Dsquare}.");
     }
 }
