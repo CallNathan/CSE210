@@ -1,0 +1,25 @@
+Object Oriented Programming
+Difference between Objects and Classes
+Objects are the variables created by Classes
+Classes are the code
+
+Variable: any noun/thing (name age number)
+Function: verb (do something)
+
+Object: also a noun/thing   
+    -combine variables and functions in a datatype (class)
+    -objects create a class
+
+Class: defines a datatype
+    -such as INT, String, BOOL
+
+UML Class Diagram
+
+Three row table
+Class name: (Circle)
+Attributes: (radius: double)
+Methods: GetArea(): double
+         GetCircumfrence(): double
+         GetDiameter(): double
+         SetRadius(double radius): void
+        (see sandbox.cs line #20-26)

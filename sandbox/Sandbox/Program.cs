@@ -15,6 +15,16 @@ class Program
         passByOut(out z);
         Console.WriteLine(z);
 
+
+        Console.WriteLine("Circle");
+
+        Circle myCircle = new Circle(); //references a type defined in Circle.cs
+        myCircle.SetRadius(10);
+        Console.WriteLine(myCircle.GetRadius());
+
+        Circle myCircleTwo = new Circle();
+        myCircleTwo.SetRadius(1000000);
+        Console.WriteLine(myCircleTwo.GetRadius());
     }
 
     public static void passByRef(ref int x)
