@@ -9,7 +9,7 @@ class Program
         string letterGrade = "";
         int lastDigitOfGrade;
 
-        Console.WriteLine("Hello Develop02 World!");
+        Console.WriteLine("Hello Prep2 world!");
 
         Console.Write("What is your Grade, rounding up.");
         stringGrade = Console.ReadLine();
