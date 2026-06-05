@@ -6,7 +6,7 @@ class Program
     {
         String firstName = "";
         String lastName = "";
-        Console.WriteLine("Hello Prep1 World!");
+        Console.WriteLine("Hello Prep1 World! again");
 
         Console.WriteLine("What is your first name?");
         firstName = Console.ReadLine();
