@@ -15,7 +15,7 @@ public class Entry
         int loop = 0;
         while (loop != 10) {
             int randomIndex = random.Next(0, Journal._prompts.Count);
-            Console.WriteLine(randomIndex);
+            Console.WriteLine(Journal._prompts[randomIndex]);
             loop = loop + 1;
         }
     }
