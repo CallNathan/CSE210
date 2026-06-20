@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 public class Journal()
 {
     private DateTime date = DateTime.Now;
@@ -49,16 +51,80 @@ public class Journal()
         {
             foreach(Entry entry in _entries)
             {
-                outputFile.WriteLine("Date: " + entry._date);
-                outputFile.WriteLine("Prompt: " + entry._prompt);
-                outputFile.WriteLine("Response: " + entry._response);
-                outputFile.WriteLine("Additional Thoughts: " + entry._thoughts);
-                outputFile.WriteLine();
+                outputFile.WriteLine($"Date: {entry._date},");
+                outputFile.WriteLine($"Prompt: {entry._prompt},");
+                outputFile.WriteLine($"Response: {entry._response},");
+                outputFile.WriteLine($"Additional Thoughts: {entry._thoughts},");
+                outputFile.WriteLine("|");
             }
         }
     }
     public void Load()
     {
+        Entry loadEntry = new Entry();
+        string filename = "Test.txt";
+        Console.WriteLine("Please enter the full filename of the file you want to load.");
+        filename = Console.ReadLine();
+
+        string file = System.IO.File.ReadAllText(filename); 
+
+        //Console.WriteLine(file);
+        string[] journal = file.Split("|");
+        foreach(string section in journal)
+        {
+            Console.WriteLine("New section: ");
+            string[] lines = section.Split(",");
+            int index = 0;
+            foreach(string line in lines)
+            {
+                if(index == 0)
+                {
+                    string newString = line.Remove(0,6);
+                    loadEntry._date=newString;
+                    Console.WriteLine(loadEntry._date);
+                }
+                else if (index == 1)
+                {
+                    string newString = line.Remove(0,10);
+                    loadEntry._prompt=newString;
+                    Console.WriteLine(loadEntry._prompt);
+                    
+                }
+                else if (index == 2)
+                {
+                    string newString = line.Remove(0,12);
+                    loadEntry._response=newString;
+                    Console.WriteLine(loadEntry._response);
+                    
+                }
+                else if (index == 3)
+                {
+                    string newString = line.Remove(0,23);
+                    loadEntry._thoughts=newString;
+                    Console.WriteLine(loadEntry._thoughts);
+                    
+                }
+                else
+                {
+                    //Do nothing
+                }
+                index++;
+            }
+            _entries.Add(loadEntry);
+            
+            
+        }
+        foreach(Entry entry in _entries)
+        {
+            Console.WriteLine($"Date: " + entry._date);
+            Console.WriteLine($"Prompt: " + entry._prompt);
+            Console.WriteLine($"Response: " + entry._response);
+            Console.WriteLine($"Additional Thoughts: {entry._thoughts}");
+            Console.WriteLine("Press Enter to see next entry.");
+            Console.ReadLine();
+
+        }
         
     }
+    
 }

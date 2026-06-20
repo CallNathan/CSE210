@@ -31,7 +31,7 @@ class Program
             }
             else if (choice == 4)
             {
-                //journal.Load();
+                journal.Load();
             }
             else if (choice == 5)
             {

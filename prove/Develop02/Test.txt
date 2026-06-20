@@ -1,8 +1,10 @@
-Date: 6/20/2026 3:00:18 PM
-Prompt: What was the strongest emotion I felt today?
-Response: Test1
-Additional Thoughts: Thought1
-Date: 6/20/2026 3:00:26 PM
-Prompt: What was the best part of my day?
-Response: Test2
-Additional Thoughts: Thought2
+Date: 6/20/2026 3:16:36 PM,
+Prompt: How did i see the hand of the Lord in my life today?,
+Response: test1,
+Additional Thoughts: thought1,
+|
+Date: 6/20/2026 3:16:41 PM,
+Prompt: What was the strongest emotion I felt today?,
+Response: test2,
+Additional Thoughts: thought2,
+|
