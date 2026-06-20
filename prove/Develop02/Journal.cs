@@ -38,4 +38,27 @@ public class Journal()
 
         }
     }
+    public void Save()
+    {
+        string filename = "backup.txt";
+        Console.WriteLine("Please enter a file name. (something like Name.txt)");
+        
+        filename = Console.ReadLine();
+
+        using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+            foreach(Entry entry in _entries)
+            {
+                outputFile.WriteLine("Date: " + entry._date);
+                outputFile.WriteLine("Prompt: " + entry._prompt);
+                outputFile.WriteLine("Response: " + entry._response);
+                outputFile.WriteLine("Additional Thoughts: " + entry._thoughts);
+                outputFile.WriteLine();
+            }
+        }
+    }
+    public void Load()
+    {
+        
+    }
 }
