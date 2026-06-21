@@ -49,19 +49,21 @@ public class Journal()
 
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
+            outputFile.WriteLine("Journal");
+            outputFile.WriteLine("|");
             foreach(Entry entry in _entries)
             {
-                outputFile.WriteLine($"Date: {entry._date},");
-                outputFile.WriteLine($"Prompt: {entry._prompt},");
-                outputFile.WriteLine($"Response: {entry._response},");
-                outputFile.WriteLine($"Additional Thoughts: {entry._thoughts},");
+                outputFile.WriteLine($"Date,: {entry._date}*");
+                outputFile.WriteLine($"Prompt,: {entry._prompt}*");
+                outputFile.WriteLine($"Response,: {entry._response}*");
+                outputFile.WriteLine($"Additional Thoughts,: {entry._thoughts}*");
                 outputFile.WriteLine("|");
             }
         }
     }
     public void Load()
     {
-        Entry loadEntry = new Entry();
+        
         string filename = "Test.txt";
         Console.WriteLine("Please enter the full filename of the file you want to load.");
         filename = Console.ReadLine();
@@ -69,52 +71,70 @@ public class Journal()
         string file = System.IO.File.ReadAllText(filename); 
 
         //Console.WriteLine(file);
+        
+        
         string[] journal = file.Split("|");
+
         foreach(string section in journal)
         {
-            Console.WriteLine("New section: ");
-            string[] lines = section.Split(",");
-            int index = 0;
-            foreach(string line in lines)
+            if(section == "" || section=="\r\n")
             {
-                if(index == 0)
-                {
-                    string newString = line.Remove(0,6);
-                    loadEntry._date=newString;
-                    Console.WriteLine(loadEntry._date);
-                }
-                else if (index == 1)
-                {
-                    string newString = line.Remove(0,10);
-                    loadEntry._prompt=newString;
-                    Console.WriteLine(loadEntry._prompt);
-                    
-                }
-                else if (index == 2)
-                {
-                    string newString = line.Remove(0,12);
-                    loadEntry._response=newString;
-                    Console.WriteLine(loadEntry._response);
-                    
-                }
-                else if (index == 3)
-                {
-                    string newString = line.Remove(0,23);
-                    loadEntry._thoughts=newString;
-                    Console.WriteLine(loadEntry._thoughts);
-                    
-                }
-                else
-                {
-                    //Do nothing
-                }
-                index++;
+                //do nothing
             }
-            _entries.Add(loadEntry);
-            
+            else 
+            {
+                Entry loadEntry = new Entry();
+                Console.WriteLine("");
+                //Console.WriteLine(section);
+                string[] lines = section.Split("*");
+                int index = 0;
+                foreach(string line in lines)
+                {
+                    if(index == 0)
+                    {
+                        string newString = line.Remove(0,7);  //source for this was gotten from https://www.codecademy.com/resources/docs/c-sharp/strings/remove
+                        loadEntry._date=newString;
+                        //Console.WriteLine(loadEntry._date);
+                    }
+                    else if (index == 1)
+                    {
+                        string newString = line.Remove(0,10);
+                        loadEntry._prompt=newString;
+                        //Console.WriteLine(loadEntry._prompt);
+
+                    }
+                    else if (index == 2)
+                    {
+                        string newString = line.Remove(0,12);
+                        loadEntry._response=newString;
+                        //Console.WriteLine(loadEntry._response);
+
+                    }
+                    else if (index == 3)
+                    {
+                        string newString = line.Remove(0,23); 
+                        loadEntry._thoughts=newString;
+                        //Console.WriteLine(loadEntry._thoughts);
+
+                    }
+                    else if (index ==4 )
+                    {
+                        _entries.Add(loadEntry);
+                    }
+                    else
+                    {
+                        //Panic
+                    }
+                    index++;
+                    
+                }
+                
+            }
             
         }
-        foreach(Entry entry in _entries)
+            
+        Console.WriteLine("File Loaded Successfully");
+        /*foreach(Entry entry in _entries)
         {
             Console.WriteLine($"Date: " + entry._date);
             Console.WriteLine($"Prompt: " + entry._prompt);
@@ -123,7 +143,8 @@ public class Journal()
             Console.WriteLine("Press Enter to see next entry.");
             Console.ReadLine();
 
-        }
+        }*/
+        //The above block was used to verify Load was correctly loading entries. It is no longer needed.
         
     }
     

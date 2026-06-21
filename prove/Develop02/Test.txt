@@ -1,10 +1,17 @@
-Date: 6/20/2026 3:16:36 PM,
-Prompt: How did i see the hand of the Lord in my life today?,
-Response: test1,
-Additional Thoughts: thought1,
+JOURNAL
 |
-Date: 6/20/2026 3:16:41 PM,
-Prompt: What was the strongest emotion I felt today?,
-Response: test2,
-Additional Thoughts: thought2,
+Date: 6/20/2026 3:16:36 PM*
+Prompt: How did i see the hand of the Lord in my life today?*
+Response: test1*
+Additional Thoughts: thought1*
+|
+Date: 6/20/2026 3:16:41 PM*
+Prompt: What was the strongest emotion I felt today?*
+Response: test2*
+Additional Thoughts: thought2*
+|
+Date: 6/20/2026 6:04:03 PM*
+Prompt: Was I kind to someone today? How was I kind?*
+Response: test3*
+Additional Thoughts: It took me 5 hours to allow myself to add this entry to a loaded file for some reason and i guarentee i did it the hardest possible way.*
 |
