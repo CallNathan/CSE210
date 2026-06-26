@@ -1,19 +1,35 @@
 public class Word()
 {
-    public List<string> words;
-    public Dictionary<int, string> removedWords;
-    private int maxIndex = 0;
-    private Random _random = new Random();
-    private int randomIndex;
+    public List<string> _words;
+    public List<string> _hiddenwords;
+    public Boolean _hidden;
 
-    public void RemoveWord()
+    public Boolean IsHidden(string isHidden)
     {
-        maxIndex = words.Count();
-        randomIndex = _random.Next(0, maxIndex);
-        string removedWord = words[randomIndex];
-        removedWords.Add(randomIndex, removedWord);
-        words.RemoveAt(randomIndex); 
+        Boolean used = false;
 
+        foreach(string w in _hiddenwords)
+        {
+            if(w == isHidden)
+            {
+                used = true;
+            }
+            else
+            {
+                _hiddenwords.Add(isHidden);
+            }
+        }
+
+        return used;
     }
-    
+    public Boolean AllHidden()
+    {
+        Boolean allHidden = false;
+        if (_words.Count == _hiddenwords.Count)
+        {
+            allHidden = true;
+        }
+
+        return allHidden;
+    }
 }
