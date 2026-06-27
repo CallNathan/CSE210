@@ -17,13 +17,15 @@ public class Scripture()
             randomIndex = random.Next(0, maxIndex);
             Word word = new();
             word._words = _words;
+            word._hiddenwords = new();
             Boolean used = word.IsHidden(_words[randomIndex]);
             Boolean allHidden = word.AllHidden();
             if(allHidden == true) {
-                break;
+                //do nothing
             }
             else if (used == false)
             {
+                word._hiddenwords.Add(_words[randomIndex]);
                 _words[randomIndex]="____ ";
             }
             else

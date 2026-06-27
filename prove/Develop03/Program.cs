@@ -35,6 +35,10 @@ class Program
                 Console.Clear();
                 scripture.RemoveWord();
             }
+            else
+            {
+                keepGoing = false;
+            }
         }
         
         
